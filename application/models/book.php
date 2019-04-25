@@ -4,7 +4,7 @@
 	{
 		
 		function getBarangFromPengadaan($id){
-			return $this->db->query("select * from pengadaan_barang_dummy where id_barang='$id'");
+			return $this->db->query("select * from pengadaan_barang where kode_barang='$id'");
 		}
 
 		function submitBarangToPemesanan($data){
@@ -15,23 +15,23 @@
 
 		}
 
-		function getPemesanan(){
-			
+		function getPemesanan($id_pel){
+			return $this->db->query("select * from pemesanan_barang where id_pelanggan='$id_pel'");
 		}
 
 		function getPelanggan($uname){
-			return $this->db->query("select * from pelanggan where id_customer='$uname'");
+			return $this->db->query("select * from customer where username='$uname'");
 		}
 
 		function updateStok($stok,$jumlah,$id){
-			$brg=$this->getBarangFromPengadaan($id)->result_array();
-			$stok=$brg['stok'];
+			// $brg=$this->getBarangFromPengadaan($id)->result_array();
+			// $stok=$brg['jumlah_barang'];
 
-			$stok=$stok-$jumlah;
+			$stokk=$stok-$jumlah;
 
-			$this->db->set('stok',$stok);
-			$this->db->where('id_barang', $id);
-			$this->db->update('pengadaan_barang_dummy');
+			$this->db->set('jumlah_barang',$stokk);
+			$this->db->where('kode_barang', $id);
+			$this->db->update('pengadaan_barang');
 		}
 	}
 ?>

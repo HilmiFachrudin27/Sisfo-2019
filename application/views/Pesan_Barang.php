@@ -65,7 +65,7 @@
 
 
 					<li class="nav-item">
-						<a class="nav-link" href="/tables.html">
+						<a class="nav-link" href="<?php echo base_url('index.php/pesan_barang_controller/cart')?>">
 							<i class="fas fa-fw"></i>
 							<img src="<?php echo base_url()?>assets/cart.png">
 							<span>Cart</span></a>
@@ -137,11 +137,11 @@
 									<form action="<?php echo base_url('/index.php/pesan_barang_controller/pesan/'); ?>" method="POST" class="col-6">
 										<div class="form-group">
 											Nama pemesan:  
-											<input type="text" name="uname" placeholder="username" class="form-control" style="margin-bottom: 5%;"  value="PT.haha" readonly>	
+											<input type="text" name="uname" class="form-control" style="margin-bottom: 5%;"  value="PT.haha" readonly>	
 										</div>
 										<div class="form-group">
 											Alamat pemesan:   
-											<input type="text" name="address" class="form-control" placeholder="masukkan alamat" style="margin-bottom: 5%;" value="PT.haha" readonly>	
+											<input type="text" name="address" class="form-control" style="margin-bottom: 5%;" value="PT.haha" readonly>	
 										</div>
 										<div class="form-group">
 											Tanggal barang dibutuhkan:   
@@ -150,8 +150,8 @@
 										<div class="pesan-barang" id="pesan_1" style="display: inline;">
 											<div class="form-group">
 												<label for="sel1">Nama barang:</label>
-												<select class="form-control dropdown" id="sel1" name="brg">
-													<option value=null>-Pilih-</option>
+												<select class="form-control dropdown" id="sel1" name="brg" required>
+													<option>-Pilih-</option>
 													<option value="brg-01">Kabel</option>
 													<option value="brg-02">RJ-45</option>
 													<option value="brg-03">Monitor</option>
