@@ -137,11 +137,11 @@
 									<form action="<?php echo base_url('/index.php/pesan_barang_controller/pesan/'); ?>" method="POST" class="col-6">
 										<div class="form-group">
 											Nama pemesan:  
-											<input type="text" name="uname" class="form-control" style="margin-bottom: 5%;"  value="PT.haha" readonly>	
+											<input type="text" name="uname" class="form-control" style="margin-bottom: 5%;"  value="PT.DUMMY INDO SEJAHTERA" readonly>	
 										</div>
 										<div class="form-group">
 											Alamat pemesan:   
-											<input type="text" name="address" class="form-control" style="margin-bottom: 5%;" value="PT.haha" readonly>	
+											<input type="text" name="address" class="form-control" style="margin-bottom: 5%;" value="DUMMY_ALAMAT" readonly>	
 										</div>
 										<div class="form-group">
 											Tanggal barang dibutuhkan:   

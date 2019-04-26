@@ -144,31 +144,35 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <table class="table table-bordered" id="mytable" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                        <th>Nama pemesan</th>
+                       <!--  <th>Nama pemesan</th>
                         <th>Alamat pemesan</th>
                         <th>Nama barang</th>
                         <th>Banyak pesanan</th>
-                        <th>Total harga</th>
+                        <th>Total harga</th> -->
+                        <th>id pesan</th>
+                        <th>id barang</th>
+                        <th>id pelanggan</th>
+                        <th>banyak barang</th>
+                        <th>harga barang</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php 
+                        $start = 0; 
+                        foreach ($booking_data as $b) 
+                        { ?>
                       <tr>
-                        <td>Joko</td>
-                        <td>Sukabirus</td>
-                        <td>Kabel</td>
-                        <td>50 meter</td>
-                        <td>$320,800</td>
+                        <!-- , , , ,  -->
+                        <td><?php echo $b->id_pemesanan ?> </td> <!-- //diisi $b->c.namaCust -->
+                        <td><?php echo $b->id_barang ?></td> <!-- //diisi $b->c.alamatCust -->
+                        <td><?php echo $b->id_pelanggan ?></td> <!-- //diisi -->
+                        <td><?php echo $b->banyak_barang ?></td> <!-- //diisi $b->pmb.banyakpesanan-->
+                        <td><?php echo $b->harga_barang ?></td> <!-- //diisi $b->pmb.harga -->
                       </tr>
-                      <tr>
-                        <td>Jani</td>
-                        <td>Sukapura</td>
-                        <td>Jack</td>
-                        <td>5 biji</td>
-                        <td>$170,750</td>
-                      </tr>
+                      <?php } ?>
                     </tbody>
                   </table>
                 </div>
@@ -179,7 +183,10 @@
         </div>
       </div>
     </div>
-  </body>
-
+    <script type="text/javascript"> 
+        $(document).ready(function() { 
+            $("#mytable").dataTable(); 
+        }); 
+    </script> 
 </body>
 </html>
