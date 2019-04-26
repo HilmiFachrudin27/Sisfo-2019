@@ -41,9 +41,9 @@
 			return $this->db->query('select * from pemesanan_barang')->result();
 		}
 
-		// function deleteOnTable($id){
-		// 	$this->db->where('', ''); 
-  		//$this->db->delete('pemesanan_barang'); 
-		// }
+		function deleteOnTable($kode){
+			$this->db->where('id_pemesanan',$kode); 
+  			$this->db->delete('pemesanan_barang'); 
+		}
 	}
 ?>

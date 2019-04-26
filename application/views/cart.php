@@ -171,6 +171,7 @@
                         <td><?php echo $b->id_pelanggan ?></td> <!-- //diisi -->
                         <td><?php echo $b->banyak_barang ?></td> <!-- //diisi $b->pmb.banyakpesanan-->
                         <td><?php echo $b->harga_barang ?></td> <!-- //diisi $b->pmb.harga -->
+                        <td><?php echo anchor(base_url('index.php/pesan_barang_controller/delete/'.$b->id_pemesanan),'Delete','onclick="javascript: return confirm(\'Are You Sure ?\')"'); ?></td>
                       </tr>
                       <?php } ?>
                     </tbody>

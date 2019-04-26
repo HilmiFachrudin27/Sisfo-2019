@@ -79,5 +79,13 @@
 			// print_r($data['booking_data']);
 			$this->load->view('cart',$data);
 		}
+
+		function delete($kode){
+			$row=$this->book->cekBookingCode($kode);
+			if($row){
+				$this->book->deleteOnTable($kode);
+				redirect(base_url('index.php/pesan_barang_controller/cart'));
+			}
+		}
 	}
 ?>
