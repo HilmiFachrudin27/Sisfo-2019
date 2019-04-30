@@ -138,10 +138,20 @@
 										<div class="form-group">
 											Nama pemesan:  
 											<input type="text" name="uname" class="form-control" style="margin-bottom: 5%;"  value="PT.DUMMY INDO SEJAHTERA" readonly>	
+
+											<!-- ------------------------ kalo sudah nyatu programnya ------------------------------ -->
+												<!-- <input type="text" name="uname" class="form-control" style="margin-bottom: 5%;"  value="<?php echo $user->namaCust?>" readonly>	 -->
+											<!-- ------------------------ kalo sudah nyatu programnya ------------------------------ -->
+
 										</div>
 										<div class="form-group">
 											Alamat pemesan:   
-											<input type="text" name="address" class="form-control" style="margin-bottom: 5%;" value="DUMMY_ALAMAT" readonly>	
+											<input type="text" name="address" class="form-control" style="margin-bottom: 5%;" value="DUMMY_ALAMAT" readonly>
+
+											<!-- ------------------------ kalo sudah nyatu programnya ------------------------------ -->
+												<!-- <input type="text" name="address" class="form-control" style="margin-bottom: 5%;"  value="<?php echo $user->alamatCust?>" readonly>	 -->
+											<!-- ------------------------ kalo sudah nyatu programnya ------------------------------ -->
+
 										</div>
 										<div class="form-group">
 											Tanggal barang dibutuhkan:   
@@ -152,10 +162,9 @@
 												<label for="sel1">Nama barang:</label>
 												<select class="form-control dropdown" id="sel1" name="brg" required>
 													<option>-Pilih-</option>
-													<option value="brg-01">Kabel</option>
-													<option value="brg-02">RJ-45</option>
-													<option value="brg-03">Monitor</option>
-													<option value="brg-04">Router</option>
+													<?php foreach($pilihan as $pil){ ?>
+														<option value="<?php echo $pil->kode_barang ?>"><?php echo $pil->nama_barang ?></option>
+													<?php } ?>
 												</select>
 											</div>
 											<br>

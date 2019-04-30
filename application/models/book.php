@@ -7,6 +7,10 @@
 			return $this->db->query("select * from pengadaan_barang where kode_barang='$id'");
 		}
 
+		function getBarangToOption(){
+			return $this->db->query("select * from pengadaan_barang");
+		}
+
 		function submitBarangToPemesanan($data){
 			$this->db->insert('pemesanan_barang',$data);
 		}
@@ -20,7 +24,13 @@
 		}
 
 		function getPelanggan($uname){
-			return $this->db->query("select * from customer where username='$uname'");
+			return $this->db->query("select * from customer where idCust='$uname'");
+
+			// in case kalo yang dipake buat login dan dimasukkin session adalah email customer:
+			//
+			// return $this->db->query("select * from customer where emailCust='$uname'");
+			//
+			//----------------------------------------------------------------------------------
 		}
 
 		function updateStok($stok,$jumlah,$id){

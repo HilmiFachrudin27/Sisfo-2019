@@ -1,46 +1,47 @@
 <?php
-	
-	class pesan_barang_controller extends CI_Controller
+
+class pesan_barang_controller extends CI_Controller
+{
+
+	function __construct()
 	{
-		
-		function __construct()
-		{
-			parent::__construct();
-			$this->load->model('book');
-		}
+		parent::__construct();
+		$this->load->model('book');
+	}
 
-		function index(){
-			$this->load->view('Pesan_Barang');
-		}
+	function index(){
+		$data['pilihan']=$this->book->getBarangToOption()->result();
+		// $data['user']=$this->book->getPelanggan($_SESSION['uname'])->result();
+		$this->load->view('Pesan_Barang',$data);
+	}
 
-		function pesan(){
-			// ---------------------ini script kalo udah ada data buat join---------------------------
+	function pesan(){
+		// ---------------------ini script kalo udah ada data buat join dan udah nyambung ke semua program---------------------------
 			// $pos=$_POST;
-			// $cust=$this->book->getPelanggan($pos['uname']); //post nya tinggal diganti ke session
 			// $barang=$this->book->getBarangFromPengadaan($pos['brg']);
 			// $arrBrg=$barang->result_array();
-			// $arrCust=$cust->result_array();
-			// $this->session->set_userdata('un',$pos['uname']);
 
-			// if ($cust->num_rows() > 0 && $barang->num_rows()>0) {
-			// 	if ($arrBrg['jumlah_barang']>=$pos['jml']) {
-			// 		$this->book->updateStok($arrBrg['jumlah_barang'],$pos['jml'],$pos['brg']);
+			// if ($arrBrg['jumlah_barang']>=$pos['jml']) {
+			// 	$this->book->updateStok($arrBrg['jumlah_barang'],$pos['jml'],$pos['brg']);
+			// 	$kode="PSN".rand(0,99);
+
+			// 	if($this->book->cekBookingCode($kode)->num_rows > 0){
+			// 		echo "kode booking duplikat";
+			// 	}else{
 			// 		$data=array(
-			// 			'id_pemesanan'=>"PSN".rand(0,99),
+			// 			'id_pemesanan'=>$kode,
 			// 			'id_barang' => $pos['brg'],
-			// 			'id_pelanggan'=> $arrCust['idCust'], //tinggal ganti ke session
+			// 			'id_pelanggan'=> $_SESSION['uname'], //tinggal ganti ke session
 			// 			'banyak_barang'=> $pos['jml'],
 			// 			'harga_barang'=> ($arrBrg['harga_barang']*$pos['jml'])
 			// 		);
 			// 		$this->book->submitBarangToPemesanan($data);
-			// 	}else{
-			// 		echo "jumlah barang tidak sesuai dengan stok";
-			// 	}
-				
+			// 	}				
 			// }else{
-			// 	echo "pelanggan atau barang tidak ditemukan";
+			// 	echo "jumlah barang yg diinginkan melebihi stok";
 			// }
-			// ---------------------ini script kalo udah ada data buat join---------------------------
+
+		// ---------------------ini script kalo udah ada data buat join dan udah nyambung ke semua program---------------------------
 
 			$pos=$_POST;
 			$id_pesan= "PSN".rand(0,99);
@@ -67,8 +68,13 @@
 		}
 
 		function cart(){
-			// $pemesanan['$msg']=$this->book->getPemesanan($_SESSION['un']);
-			//$this->load->view('cart'); //,$pemesanan
+			//---------------script yang bener-------------------------------------------
+			//
+			// $pemesanan['booking_data']=$this->book->getPemesanan($_SESSION['un']);
+			// $this->load->view('cart',$pemesanan); 
+			//
+			//---------------script yang bener-------------------------------------------
+
 
 			$isi=$this->book->get4Table(); //belom ada session $_SESSION['id']
 			//print_r($isi);
@@ -87,5 +93,10 @@
 				redirect(base_url('index.php/pesan_barang_controller/cart'));
 			}
 		}
+
+		// function pengadaanToOption(){
+
+		// 	// print_r($this->book->getBarangToOption()->result_array());
+		// }
 	}
-?>
+	?>

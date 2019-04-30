@@ -147,11 +147,16 @@
                   <table class="table table-bordered" id="mytable" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                       <!--  <th>Nama pemesan</th>
+                       <!-- ini script yang seharusnya -----
+
+                        <th>Nama pemesan</th>
                         <th>Alamat pemesan</th>
                         <th>Nama barang</th>
                         <th>Banyak pesanan</th>
-                        <th>Total harga</th> -->
+                        <th>Total harga</th> 
+
+                       ---- ini script yang seharusnya -->
+
                         <th>id pesan</th>
                         <th>id barang</th>
                         <th>id pelanggan</th>
@@ -161,16 +166,15 @@
                     </thead>
                     <tbody>
                       <?php 
-                        $start = 0; 
                         foreach ($booking_data as $b) 
                         { ?>
                       <tr>
                         <!-- , , , ,  -->
-                        <td><?php echo $b->id_pemesanan ?> </td> <!-- //diisi $b->c.namaCust -->
-                        <td><?php echo $b->id_barang ?></td> <!-- //diisi $b->c.alamatCust -->
+                        <td><?php echo $b->id_pemesanan ?> </td> <!-- //diisi $b->namaCust -->
+                        <td><?php echo $b->id_barang ?></td> <!-- //diisi $b->alamatCust -->
                         <td><?php echo $b->id_pelanggan ?></td> <!-- //diisi -->
-                        <td><?php echo $b->banyak_barang ?></td> <!-- //diisi $b->pmb.banyakpesanan-->
-                        <td><?php echo $b->harga_barang ?></td> <!-- //diisi $b->pmb.harga -->
+                        <td><?php echo $b->banyak_barang ?></td> <!-- //diisi $b->banyakpesanan-->
+                        <td><?php echo $b->harga_barang ?></td> <!-- //diisi $b->harga -->
                         <td><?php echo anchor(base_url('index.php/pesan_barang_controller/delete/'.$b->id_pemesanan),'Delete','onclick="javascript: return confirm(\'Are You Sure ?\')"'); ?></td>
                       </tr>
                       <?php } ?>
